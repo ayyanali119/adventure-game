@@ -14,7 +14,7 @@ class Opponent {
 class Player {
     name;
     fuel = 100;
-    portions = 2;
+    portions = 3;
     constructor(name) {
         this.name = name;
         this.name = name;
@@ -98,21 +98,21 @@ let opponentName = await inquirer.prompt({ name: 'opponent', type: 'list', messa
 let player = new Player(playerName.player);
 let opponent = new Opponent(opponentName.opponent);
 do {
-    let action = await inquirer.prompt({ name: "action", type: "list", message: `What you want to do against ${opponentName.opponent}`, choices: ["Attack 👊", "Defend 🛡️", "Have Energy Drink 🔋", "Escape 🏃🏽‍♂️"] });
-    if (opponentName.opponent == "Skeleton 💀" || opponentName.opponent == "Assasin 🦹‍♂️" || opponentName.opponent == "Zombie 🧟‍♂️" || opponentName.opponent == "Warrior ⚔️" || opponentName.opponent == "Archer 🏹" || opponentName.opponent == "Giant 🦾") {
-        if (action.action == "Attack 👊") {
+    let action = await inquirer.prompt({ name: "action", type: "list", message: `What you want to do against ${opponentName.opponent}`, choices: ["Attack ", "Defend ", "Have Energy Drink ", "Escape "] });
+    if (opponentName.opponent == "Skeleton " || opponentName.opponent == "Assasin " || opponentName.opponent == "Zombie " || opponentName.opponent == "Warrior " || opponentName.opponent == "Archer " || opponentName.opponent == "Giant 🦾") {
+        if (action.action == "Attack ") {
             player.animateAttack();
             player.attacking(opponent);
         }
-        if (action.action === 'Have Energy Drink 🔋') {
+        if (action.action === 'Have Energy Drink ') {
             player.animateDrink();
             player.drinkingEnergyDrink();
         }
-        if (action.action === 'Escape 🏃🏽‍♂️') {
+        if (action.action === 'Escape ') {
             player.animateEscape();
             player.runningAway();
         }
-        if (action.action === 'Defend 🛡️') {
+        if (action.action === 'Defend ') {
             player.defend();
         }
     }

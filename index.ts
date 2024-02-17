@@ -15,7 +15,7 @@ class Opponent {
 
 class Player {
     fuel: number = 100
-    portions: number = 2
+    portions: number = 3
     constructor(public name: string) {
         this.name = name;
     }
